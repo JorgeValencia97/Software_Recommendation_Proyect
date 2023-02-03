@@ -16,26 +16,26 @@ def Colombia_travel_guide():
 
 #Create a the initial tree childs based on travel_type
 
-def build_tree(travel_destination):
-    root = TreeNode("Travel Destinations")
+def build_tree(travel_destination_data):
+    root = TreeNode("Travel Destations")
     travel_type_map = {}
     for dest in travel_destination:
-        travel_type, place, sub_destinations = dest[0], dest[1], dest[2:]
+        travel_type, main_dest, sub_destinations = dest[0], dest[1], dest[2:]
         if travel_type not in travel_type_map:
             travel_type_node = TreeNode(travel_type)
             root.add_child(travel_type_node)
             travel_type_map[travel_type] = travel_type_node
         else:
             travel_type_node = travel_type_map[travel_type]
-        place_node = TreeNode(place)
+        
+        place_node = TreeNode(main_dest)
         travel_type_node.add_child(place_node)
         for sub_dest in sub_destinations:
             sub_dest_node = TreeNode(sub_dest)
             place_node.add_child(sub_dest_node)
+    
     return root
 
-root = build_tree(travel_destination)
-root.traverse()
 
 
 
