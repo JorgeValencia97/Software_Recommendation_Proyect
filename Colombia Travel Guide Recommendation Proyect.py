@@ -2,6 +2,7 @@
 from TravelGuideData import travel_type
 from TravelGuideData import travel_destination
 
+
 type_string = ""
 for type in travel_type:
     type_string += "{0}\n".format(type)
