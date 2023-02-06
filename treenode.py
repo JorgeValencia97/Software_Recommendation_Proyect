@@ -1,4 +1,5 @@
 from node import Node
+from TravelGuideData import travel_type
 
 class TreeNode:
   def __init__(self, value):
@@ -15,10 +16,3 @@ class TreeNode:
     self.children = [child for child in self.children 
                      if child is not child_node]
 
-  def traverse(self):
-    # moves through each node referenced from self downwards
-    nodes_to_visit = [self]
-    while len(nodes_to_visit) > 0:
-      current_node = nodes_to_visit.pop()
-      print(current_node.value)
-      nodes_to_visit += current_node.children
